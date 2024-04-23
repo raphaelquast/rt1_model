@@ -52,9 +52,9 @@ For example, the RT1 modeling framework was used for soil-moisture retrieval fro
 
 The package provides a set of distribution functions (Isotropic, Rayleigh, HenyeyGreenstein, ...) that can be used to describe basic volume- or surface scatternig behaviors. More complex scattering scenarios can then be modelled by utilizing parametric linear-combinations.
 
-To support possibly anisotropic scattering characteristics, all functions are furthermore implemented with respect to a generalized scattering angle \ref{eq_scat_angle} @Lafortune:
+To support possibly anisotropic scattering characteristics, all functions are furthermore implemented with respect to a generalized scattering angle \autoref{eq:scatangle} @Lafortune:
 
-$$\cos(\Theta_a) = a_0 \cos(\theta) \cos(\theta_s) + \sin(\theta)\sin(\theta_s) [ a_1 \cos(\phi)\cos(\phi_s) + a_2 \sin(\phi) \sin(\phi_s)] \label{eq_scat_angle}$$
+$$\cos(\Theta_a) = a_0 \cos(\theta) \cos(\theta_s) + \sin(\theta)\sin(\theta_s) [ a_1 \cos(\phi)\cos(\phi_s) + a_2 \sin(\phi) \sin(\phi_s)] \label{scatangle}$$
 
 where ($\theta, \phi$) denote the incident azimuth and polar angle and $(\theta_s, \phi_s)$ the corresponding exit angles and $(a_0, a_1, a_2)$ are the generalization parameters.
 
@@ -62,7 +62,7 @@ For example, a combination of a forward- and a backward oriented HenyeyGreenstei
 
 $$BRDF = w * HG(-t, a_0=-1) + (1-w) * HG(t, a_0=1) \quad \textrm{with} \quad w, t \in (0,1)$$
 
-Can be implemented via:
+can be implemented via:
 
 ```
 from rt1_model import surface

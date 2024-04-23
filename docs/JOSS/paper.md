@@ -38,31 +38,28 @@ The package utilizes a minimal set of core dependencies, namely: `numpy` @Harris
 # Statement of need
 
 
-Radiative transfer theory is used in a variety of contexts to retrieve biophysical characteristics from radar signals.
+Radiative transfer theory is used in a variety of contexts to retrieve biophysical characteristics from radar signals. The `rt1_model` package was developed to study soil-moisture retrievals from incidence-angle dependent backscatter measurements in the microwave-domain, provided for example by the ASCAT scatterometer onboard the METOP satellites @FigaSaldana2002 or synthetic aperture radar (SAR) instruments such as Sentinel-1 @Torres2012, or the upcoming NISAR @Rosen2021 mission.
 
-The presented generic solution to the problem of a rough surface covered by a tenuous distribution of particulate media with respect to parametric distribution functions allows a intuitive yet flexible way to parametrize
+To date, the RT1 modeling framework was used for soil-moisture retrieval from microwave c-band radar data @Quast2019, @Quast2023 and adapted for rice-crop monitoring with a ground based bistatic scatterometer @Yadav2022.
 
-The description of the scattering characteristics of a rough surface covered by vegatation remains challenging.
+The bi-static nature of the distribution functions used in the parametrization of soil- and vegetation characteristics furthermore enables potential application to bi-static measurements as provided by GNSS systems or constellations such as SAOCOM @Scipal2017 or the upcoming Sentinel-1 companion mission Harmony @ESA2022.
 
-With the increasing availability of bistatic measurements (for example from GNSS), the need for bi-static parameterization stragegies  
-
-For example, the RT1 modeling framework was used for soil-moisture retrieval from microwave c-band radar data (@Quast2019, @Quast2023) and adapted for rice-crop monitoring @Yadav2022 with a ground based bistatic scatterometer.
 
 ## Distribution functions
 
 The package provides a set of distribution functions (Isotropic, Rayleigh, HenyeyGreenstein, ...) that can be used to describe basic volume- or surface scatternig behaviors. More complex scattering scenarios can then be modelled by utilizing parametric linear-combinations.
 
-To support possibly anisotropic scattering characteristics, all functions are furthermore implemented with respect to a generalized scattering angle \autoref{eq:scatangle} @Lafortune:
+To support possibly anisotropic scattering characteristics, all functions are furthermore implemented with respect to a generalized scattering angle @Lafortune1997:
 
-$$\cos(\Theta_a) = a_0 \cos(\theta) \cos(\theta_s) + \sin(\theta)\sin(\theta_s) [ a_1 \cos(\phi)\cos(\phi_s) + a_2 \sin(\phi) \sin(\phi_s)] \label{scatangle}$$
+$$\cos(\Theta_a) = a_0 \cos(\theta) \cos(\theta_s) + \sin(\theta)\sin(\theta_s) [ a_1 \cos(\phi)\cos(\phi_s) + a_2 \sin(\phi) \sin(\phi_s)]$$
 
 where ($\theta, \phi$) denote the incident azimuth and polar angle and $(\theta_s, \phi_s)$ the corresponding exit angles and $(a_0, a_1, a_2)$ are the generalization parameters.
 
-For example, a combination of a forward- and a backward oriented HenyeyGreenstein peak defined as:
+For example, a surface scattering distribution function that consists of a peak in specular direction and a second peak in incidence direction can be defined as:
 
 $$BRDF = w * HG(-t, a_0=-1) + (1-w) * HG(t, a_0=1) \quad \textrm{with} \quad w, t \in (0,1)$$
 
-can be implemented via:
+and implemented via:
 
 ```
 from rt1_model import surface
@@ -75,8 +72,9 @@ SRF = surface.LinComb([("w", SRF_1), ("1-w", SRF_2)])
 
 ![Linear Combination of surface BRDFs. \label{fig_lin_comb_brdf}](lin_comb_brdf.png)
 
+## Parameter Retrieval
 
-## Optimization
+The documentation provides a set of retrieval examples...
 
 ![Example of the analyzer-widget for a RT1 model result. \label{fig_retrieval_static}](retrieval_static.png)
 

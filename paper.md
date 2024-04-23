@@ -33,7 +33,7 @@ The underlying calculations are implemented via symbolic expressions, allowing t
 
 The package utilizes a minimal set of core dependencies: `numpy` @Harris2020, `scipy` @Virtanen2020, `sympy` @Meurer2017 (with optional `symengine` @symengine support) and a set of visualizations created with `matplotlib` @Hunter2007.
 
-![Illustration of the scattering contributions considered in the RT1 model (from @Quast2023) \label{fig_model}](model.png)
+![Illustration of the scattering contributions considered in the RT1 model (from @Quast2023) \label{fig_model}](docs/_static/model.png)
 
 # Statement of need
 

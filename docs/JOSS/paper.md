@@ -68,7 +68,7 @@ Examples hereby show how to perform "static" parameter retrievals (Figure \ref{f
 
 The provided analyzer-widget can then be used to assess effects of model parameters on the individual backscattering contributions.
 
-![Example of the analyzer-widget for a RT1 model result. \label{fig_retrieval_static}](retrieval_static.png)
+![Example of the analyzer-widget to analyze the impact of model parameters on the RT1 model result. \label{fig_retrieval_static}](retrieval_static_overlay.png)
 
 
 ![Example of optimization results for a multi-temporal retrieval. \label{fig_retrieval_multi_temporal}](multi_temporal_retrieval.png)
